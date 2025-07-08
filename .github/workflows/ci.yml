@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   ci:
-    uses: batumilove/cf-pipeline/.github/workflows/ci.yml@v1
+    uses: batumi-works/cf-pipeline/.github/workflows/ci.yml@v1
     with:
       node_version: '18'
       wrangler_version: 'latest'
@@ -26,7 +26,7 @@ jobs:
       DATADOG_APP_KEY: ${{ secrets.DATADOG_APP_KEY }}
 
   deploy:
-    uses: batumilove/cf-pipeline/.github/workflows/deploy.yml@v1
+    uses: batumi-works/cf-pipeline/.github/workflows/deploy.yml@v1
     needs: ci
     if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'
     with:
