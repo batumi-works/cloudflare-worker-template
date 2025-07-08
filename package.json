@@ -1,0 +1,51 @@
+{
+  "name": "cloudflare-worker-template",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker template with centralized CI/CD pipeline",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "cf-scripts dev",
+    "test": "cf-scripts test",
+    "deploy": "cf-scripts deploy",
+    "deploy:staging": "cf-scripts deploy staging",
+    "deploy:production": "cf-scripts deploy production",
+    "validate": "cf-scripts validate",
+    "lint": "eslint src/ --ext .js,.ts",
+    "typecheck": "tsc --noEmit",
+    "build": "echo 'No build step required for basic template'"
+  },
+  "keywords": [
+    "cloudflare",
+    "workers",
+    "template",
+    "serverless"
+  ],
+  "author": "Batumi Works",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/batumi-works/cloudflare-worker-template.git"
+  },
+  "bugs": {
+    "url": "https://github.com/batumi-works/cloudflare-worker-template/issues"
+  },
+  "homepage": "https://github.com/batumi-works/cloudflare-worker-template#readme",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "@batumi/cf-scripts": "^1.0.0"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.4.5",
+    "@cloudflare/workers-types": "^4.20231025.0",
+    "eslint": "^8.54.0",
+    "eslint-config-standard": "^17.1.0",
+    "typescript": "^5.2.2",
+    "vitest": "^1.0.0"
+  },
+  "peerDependencies": {
+    "wrangler": ">=3.0.0"
+  }
+}

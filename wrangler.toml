@@ -1,0 +1,64 @@
+name = "my-worker"
+main = "src/index.js"
+compatibility_date = "2023-05-18"
+
+# Production environment (default)
+[env.production]
+name = "my-worker"
+routes = [
+  { pattern = "example.com/*", zone_name = "example.com" }
+]
+
+# Staging environment
+[env.staging]
+name = "my-worker-staging"
+routes = [
+  { pattern = "staging.example.com/*", zone_name = "example.com" }
+]
+
+# Development environment
+[env.development]
+name = "my-worker-dev"
+
+# Worker configuration
+[build]
+command = "npm run build"
+
+# Security settings
+[security]
+# Add security headers by default
+
+# Observability
+[observability]
+enabled = true
+
+# Environment variables (non-sensitive)
+[vars]
+ENVIRONMENT = "production"
+
+# Environment-specific variables
+[env.staging.vars]
+ENVIRONMENT = "staging"
+
+[env.development.vars]
+ENVIRONMENT = "development"
+
+# Secrets (set via wrangler secret put)
+# CLOUDFLARE_API_TOKEN = "secret"
+# DATABASE_URL = "secret"
+
+# KV Namespaces (example)
+# [[kv_namespaces]]
+# binding = "MY_KV"
+# id = "your-kv-namespace-id"
+# preview_id = "your-preview-kv-namespace-id"
+
+# Durable Objects (example)
+# [[durable_objects.bindings]]
+# name = "MY_DO"
+# class_name = "MyDurableObject"
+
+# R2 Buckets (example)
+# [[r2_buckets]]
+# binding = "MY_BUCKET"
+# bucket_name = "my-bucket"
