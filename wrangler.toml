@@ -24,13 +24,9 @@ name = "my-worker-dev"
 [build]
 command = "npm run build"
 
-# Security settings
-[security]
-# Add security headers by default
+# Security settings can be configured via middleware in the worker
 
-# Observability
-[observability]
-enabled = true
+# Observability can be configured via logging middleware
 
 # Environment variables (non-sensitive)
 [vars]

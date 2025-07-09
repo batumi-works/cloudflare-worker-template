@@ -5,15 +5,12 @@ export default defineConfig({
     pool: '@cloudflare/vitest-pool-workers',
     poolOptions: {
       workers: {
-        wrangler: {
-          configPath: './wrangler.toml',
-        },
+        wrangler: { configPath: './wrangler.toml' },
         miniflare: {
-          // Miniflare-specific options
-          compatibilityDate: '2023-05-18',
+          compatibilityDate: '2024-01-01',
           compatibilityFlags: ['nodejs_compat'],
           bindings: {
-            // Add any bindings for testing
+            ENVIRONMENT: 'test'
           },
           kvNamespaces: {
             // Add KV namespaces for testing
@@ -24,7 +21,6 @@ export default defineConfig({
         },
       },
     },
-    environment: 'miniflare',
     globals: true,
     setupFiles: ['./test/setup.js'],
   },
